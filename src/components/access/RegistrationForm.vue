@@ -80,104 +80,233 @@ function handleGradeChange(event: { detail?: { value?: string | number } }) {
 </script>
 
 <template>
-  <form class="flex flex-col gap-6" @submit.prevent="handleSubmit">
-    <div class="bg-white p-8 rounded-[36px] shadow-sm border border-[#F0E6D8] flex flex-col gap-6">
+  <form class="flex flex-col gap-[32rpx]" @submit.prevent="handleSubmit">
+    <view class="form-card form-card--gold">
+      <view class="form-card__header">
+        <view class="form-card__sticker form-card__sticker--gold">
+          <text class="text-[40rpx]">👤</text>
+        </view>
+        <view class="form-card__heading">
+          <text class="form-card__kicker form-card__kicker--gold">Basic Info</text>
+          <text class="form-card__title">Tell us who is joining today.</text>
+        </view>
+      </view>
       
-      <div class="flex items-center gap-3 mb-2">
-        <div class="inline-flex items-center justify-center p-2 rounded-full bg-[#FFF5E6] text-[#F59E0B]">
-          <text class="text-[20px]">👤</text>
-        </div>
-        <text class="text-[12px] font-black uppercase tracking-widest text-[#F59E0B]">Basic Info</text>
-      </div>
-      
-      <label class="flex flex-col gap-2.5">
-        <text class="text-[14px] font-black text-[#1A202C] ml-2">Student ID</text>
-        <input v-model.trim="form.studentId" autocomplete="username" class="input-shell" name="studentId" placeholder="E.g. S-001" />
-      </label>
+      <view class="flex flex-col gap-[16rpx]">
+        <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Student ID</text>
+        <input v-model.trim="form.studentId" autocomplete="username" class="input-shell registration-input-shell" name="studentId" placeholder="E.g. S-001" />
+      </view>
 
-      <label class="flex flex-col gap-2.5">
-        <text class="text-[14px] font-black text-[#1A202C] ml-2">Full Name</text>
-        <input v-model.trim="form.name" autocomplete="name" class="input-shell" name="name" placeholder="E.g. Sporty Sam" />
-      </label>
+      <view class="flex flex-col gap-[16rpx]">
+        <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Full Name</text>
+        <input v-model.trim="form.name" autocomplete="name" class="input-shell registration-input-shell" name="name" placeholder="E.g. Sporty Sam" />
+      </view>
 
-      <div class="grid grid-cols-2 gap-4">
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Gender</text>
-          <div class="relative">
-            <picker
-              class="w-full"
-              mode="selector"
-              :range="genderOptions"
-              :value="selectedGenderIndex"
-              @change="handleGenderChange"
-            >
-              <view class="input-shell flex items-center">
-                {{ form.gender || 'Select' }}
-              </view>
-            </picker>
-          </div>
-        </label>
+      <view class="form-row">
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Gender</text>
+          <picker
+            class="registration-picker-shell"
+            mode="selector"
+            :range="genderOptions"
+            :value="selectedGenderIndex"
+            @change="handleGenderChange"
+          >
+            <view class="input-shell registration-input-shell registration-input-shell--picker flex items-center">
+              {{ form.gender || 'Select' }}
+            </view>
+          </picker>
+        </view>
         
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Age</text>
-          <input v-model.number="form.age" autocomplete="off" class="input-shell" min="5" name="age" placeholder="12" type="number" />
-        </label>
-      </div>
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Age</text>
+          <input v-model.number="form.age" autocomplete="off" class="input-shell registration-input-shell" min="5" name="age" placeholder="12" type="number" />
+        </view>
+      </view>
       
-      <div class="grid grid-cols-2 gap-4">
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Major</text>
-          <input v-model.trim="form.major" autocomplete="organization-title" class="input-shell" name="major" placeholder="Sci..." />
-        </label>
+      <view class="form-row">
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Major</text>
+          <input v-model.trim="form.major" autocomplete="organization-title" class="input-shell registration-input-shell" name="major" placeholder="Sci..." />
+        </view>
         
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Grade</text>
-          <div class="relative">
-            <picker
-              class="w-full"
-              mode="selector"
-              :range="gradeOptions"
-              :value="selectedGradeIndex"
-              @change="handleGradeChange"
-            >
-              <view class="input-shell flex items-center">
-                {{ form.grade || 'Select' }}
-              </view>
-            </picker>
-          </div>
-        </label>
-      </div>
-    </div>
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Grade</text>
+          <picker
+            class="registration-picker-shell"
+            mode="selector"
+            :range="gradeOptions"
+            :value="selectedGradeIndex"
+            @change="handleGradeChange"
+          >
+            <view class="input-shell registration-input-shell registration-input-shell--picker flex items-center">
+              {{ form.grade || 'Select' }}
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
 
-    <!-- Health Metrics Card -->
-    <div class="bg-white p-8 rounded-[36px] shadow-sm border border-[#F0E6D8] flex flex-col gap-6 mt-2">
-      <div class="flex items-center gap-3 mb-2">
-        <div class="inline-flex items-center justify-center p-2 rounded-full bg-[#E0EDFF] text-[#4A90E2]">
-          <text class="text-[20px]">💓</text>
-        </div>
-        <text class="text-[12px] font-black uppercase tracking-widest text-[#4A90E2]">Health Metrics</text>
-      </div>
+    <view class="form-card form-card--teal">
+      <view class="form-card__header">
+        <view class="form-card__sticker form-card__sticker--teal">
+          <text class="text-[40rpx]">💓</text>
+        </view>
+        <view class="form-card__heading">
+          <text class="form-card__kicker form-card__kicker--teal">Health Metrics</text>
+          <text class="form-card__title">Add a quick baseline before training starts.</text>
+        </view>
+      </view>
 
-      <div class="grid grid-cols-2 gap-4">
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Height (cm)</text>
-          <input v-model.number="form.heightCm" autocomplete="off" class="input-shell" min="1" name="heightCm" placeholder="160" type="number" />
-        </label>
+      <view class="form-row">
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Height (cm)</text>
+          <input v-model.number="form.heightCm" autocomplete="off" class="input-shell registration-input-shell" min="1" name="heightCm" placeholder="160" type="number" />
+        </view>
 
-        <label class="flex flex-col gap-2.5">
-          <text class="text-[14px] font-black text-[#1A202C] ml-2">Weight (kg)</text>
-          <input v-model.number="form.weightKg" autocomplete="off" class="input-shell" min="1" name="weightKg" placeholder="50" type="number" />
-        </label>
-      </div>
+        <view class="form-row__field flex flex-col gap-[16rpx]">
+          <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Weight (kg)</text>
+          <input v-model.number="form.weightKg" autocomplete="off" class="input-shell registration-input-shell" min="1" name="weightKg" placeholder="50" type="number" />
+        </view>
+      </view>
 
-      <label class="flex flex-col gap-2.5">
-        <text class="text-[14px] font-black text-[#1A202C] ml-2">Resting HR (bpm)</text>
-        <input v-model.number="form.restingHeartRate" autocomplete="off" class="input-shell" min="1" name="restingHeartRate" placeholder="70" type="number" />
-      </label>
-    </div>
+      <view class="flex flex-col gap-[16rpx]">
+        <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Resting HR (bpm)</text>
+        <input v-model.number="form.restingHeartRate" autocomplete="off" class="input-shell registration-input-shell" min="1" name="restingHeartRate" placeholder="70" type="number" />
+      </view>
+    </view>
 
-    <button form-type="submit" class="btn-primary mt-6 mb-12" :disabled="!canSubmit">
+    <view class="form-card__footer-note">
+      <text>Everything here only sets up your starting profile. You can refine it later.</text>
+    </view>
+
+    <button form-type="submit" class="btn-primary mt-[24rpx] mb-[48rpx]" :disabled="!canSubmit">
       <text class="tracking-wide">Ready, Set, Go! 🚀</text>
     </button>
   </form>
 </template>
+
+<style scoped>
+.form-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24rpx;
+}
+
+.form-row__field {
+  flex: 1 1 240rpx;
+  min-width: 0;
+}
+
+.registration-input-shell {
+  width: 100%;
+  max-width: 560rpx;
+  align-self: flex-start;
+}
+
+.registration-input-shell--picker {
+  justify-content: space-between;
+}
+
+.registration-picker-shell {
+  display: flex;
+  width: 100%;
+  max-width: 560rpx;
+  align-self: flex-start;
+}
+
+.form-card {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+  padding: 40rpx;
+  border-radius: 48rpx;
+  background: #ffffff;
+  box-shadow: 0 12rpx 0 rgba(0, 0, 0, 0.05);
+}
+
+.form-card--gold {
+  border: 8rpx solid rgba(255, 211, 132, 0.25);
+}
+
+.form-card--teal {
+  border: 8rpx solid rgba(137, 207, 255, 0.25);
+}
+
+.form-card__header {
+  display: flex;
+  align-items: center;
+  gap: 20rpx;
+}
+
+.form-card__heading {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 12rpx;
+}
+
+.form-card__sticker {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 84rpx;
+  height: 84rpx;
+  flex: none;
+  border-radius: 9999px;
+  border: 4rpx solid #ffffff;
+  box-shadow: 0 8rpx 0 rgba(0, 0, 0, 0.04);
+}
+
+.form-card__sticker--gold {
+  background: rgba(255, 211, 132, 0.24);
+}
+
+.form-card__sticker--teal {
+  background: rgba(137, 207, 255, 0.24);
+}
+
+.form-card__kicker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 8rpx 18rpx;
+  border-radius: 9999px;
+  font-size: 24rpx;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.form-card__kicker--gold {
+  color: #D97706;
+  background: rgba(255, 211, 132, 0.14);
+  border: 4rpx solid rgba(255, 211, 132, 0.22);
+}
+
+.form-card__kicker--teal {
+  color: #2B7CB8;
+  background: rgba(137, 207, 255, 0.14);
+  border: 4rpx solid rgba(137, 207, 255, 0.22);
+}
+
+.form-card__title {
+  display: block;
+  color: #1A202C;
+  font-size: 34rpx;
+  line-height: 1.35;
+  font-weight: 900;
+}
+
+.form-card__footer-note {
+  display: flex;
+  justify-content: center;
+  padding: 0 16rpx;
+  color: #64748B;
+  font-size: 26rpx;
+  line-height: 1.5;
+  font-weight: 700;
+  text-align: center;
+}
+</style>

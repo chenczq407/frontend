@@ -53,38 +53,32 @@ function optionClasses(isSelected: boolean) {
 </script>
 
 <template>
-  <form class="flex flex-col gap-6" @submit.prevent="handleSubmit">
-    <article
+  <form class="flex flex-col gap-[32rpx]" @submit.prevent="handleSubmit">
+    <view
       v-for="question in questions"
       :key="question.id"
-      class="bg-white rounded-[32px] p-8 shadow-sm border border-[#F0E6D8]"
+      class="bg-white rounded-[32rpx] p-[40rpx] border-4 border-brand-gold/20 chunky-shadow"
     >
-      <p class="text-[48rpx] font-black text-[#1A202C] leading-snug mb-8 tracking-tight">{{ question.prompt }}</p>
+      <text class="block text-[36rpx] font-800 text-[#1A202C] leading-snug mb-[32rpx] tracking-tight">{{ question.prompt }}</text>
       
-      <div class="flex items-center justify-between gap-2">
-        <label v-for="value in 5" :key="value" 
-          class="relative flex flex-col items-center gap-2 cursor-pointer group flex-1"
+      <view class="flex items-center justify-between gap-[12rpx]">
+        <view v-for="value in 5" :key="value"
+          class="relative flex flex-col items-center gap-[12rpx] flex-1"
+          @click="handleResponseChange(question.id, value)"
         >
-          <input
-            class="sr-only"
-            type="radio"
-            :name="question.id"
-            :checked="responses[question.id] === value"
-            @change="handleResponseChange(question.id, value)"
-          />
-          <div class="rating-option rating-option--circle mx-auto" :class="optionClasses(responses[question.id] === value)">
+          <view class="rating-option rating-option--circle mx-auto" :class="optionClasses(responses[question.id] === value)">
             {{ value }}
-          </div>
-        </label>
-      </div>
-    </article>
+          </view>
+        </view>
+      </view>
+    </view>
 
-    <div class="mt-8 pb-12">
+    <view class="mt-[32rpx] pb-[48rpx]">
       <button form-type="submit" class="btn-primary" :disabled="!isComplete">
         <text v-if="!isComplete">Complete all questions First</text>
         <text v-else>Submit Answers ✨</text>
       </button>
-    </div>
+    </view>
   </form>
 </template>
 
