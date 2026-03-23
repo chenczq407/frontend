@@ -57,14 +57,14 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
   width: min(880px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding: 1.25rem;
+  gap: 1.5rem;
+  padding: 1.75rem 1.25rem 2.5rem;
 }
 
 .growth-page__header {
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.85rem;
 }
 
 .growth-page__eyebrow {
@@ -99,7 +99,7 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
 }
 
 .growth-page__section {
-  padding: 1rem;
+  padding: 1.25rem;
 }
 
 .growth-page__section-shell {

@@ -20,7 +20,7 @@ watchEffect(() => {
 </script>
 
 <template>
-  <main class="mx-auto flex min-h-screen max-w-420 flex-col gap-18 px-20 py-24">
+  <main class="mx-auto flex min-h-screen max-w-420 flex-col gap-22 px-20 py-32">
     <ReminderBanner :visible="showReminderBanner" />
 
     <section class="card-shell home-page__hero">
@@ -66,7 +66,7 @@ watchEffect(() => {
 .home-page__hero {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
 }
 
 .home-page__hero-tag {
@@ -100,7 +100,7 @@ watchEffect(() => {
 }
 
 .home-page__actions {
-  margin-top: 1.125rem;
+  margin-top: 1.5rem;
   display: flex;
   gap: 0.75rem;
 }

@@ -73,6 +73,7 @@ refreshReminderEligibility()
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  margin-top: 1.75rem;
 }
 
 .feedback-page__primary-action,

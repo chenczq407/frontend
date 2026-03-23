@@ -57,15 +57,15 @@ function chooseMode(modality: TrainingModality) {
   min-height: 100vh;
   max-width: 420px;
   flex-direction: column;
-  gap: 1.125rem;
-  padding: 1.5rem 1.25rem;
+  gap: 1.5rem;
+  padding: 2rem 1.25rem 2.5rem;
 }
 
 .select-page__hero-card {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 1rem;
   overflow: hidden;
 }
 
