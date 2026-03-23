@@ -2,19 +2,10 @@
 import { useRouter } from 'vue-router'
 import AccessPageShell from '../../components/access/AccessPageShell.vue'
 import RegistrationForm from '../../components/access/RegistrationForm.vue'
+import type { StudentProfile } from '../../domain/student/types'
 import { useStudentAppState } from '../../composables/useStudentAppState'
 
-interface RegistrationPayload {
-  studentId: string
-  name: string
-  gender: string
-  age: number
-  major: string
-  grade: string
-  heightCm: number
-  weightKg: number
-  restingHeartRate: number
-}
+type RegistrationPayload = Omit<StudentProfile, 'completed'>
 
 const router = useRouter()
 const { completeProfile, setActiveCheckpoint } = useStudentAppState()
