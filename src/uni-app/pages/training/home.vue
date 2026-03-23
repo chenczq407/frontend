@@ -29,22 +29,21 @@ onShow(() => {
   store.refreshReminderEligibility()
 })
 
-function openTrainingSelection() {
-  void uni.navigateTo({
-    url: '/pages/training/select'
-  })
-}
-
-function openGrowthCenter() {
-  void uni.navigateTo({
-    url: '/pages/growth/index'
-  })
-}
 </script>
 
 <template>
   <UniTrainingPageShell>
     <ReminderBanner :visible="showReminderBanner" />
+
+    <view class="card-shell home-page__hero">
+      <view class="home-page__hero-tag">
+        <text>Daily Hub</text>
+      </view>
+      <text class="section-title">Choose your next exercise snack</text>
+      <text class="home-page__hero-copy">
+        Pick one playful session, finish it, and keep your streak moving.
+      </text>
+    </view>
 
     <DailyProgressCard
       :qualifying-days="store.state.weeklyAdherence.qualifyingDays"
@@ -52,63 +51,118 @@ function openGrowthCenter() {
       :valid-check-ins="store.state.dailyAdherence.validCheckIns"
     />
 
-    <section class="card-shell p-20">
-      <p class="section-title">Choose your next exercise snack</p>
-      <p class="mt-10 text-[48rpx] leading-10 text-slate-600">
+    <view class="card-shell p-[40rpx]">
+      <view class="home-page__hero-tag home-page__hero-tag--teal">
+        <text>Quick Actions</text>
+      </view>
+      <text class="block section-title mt-[20rpx]">Choose your next exercise snack</text>
+      <text class="block mt-[20rpx] text-[34rpx] leading-8 text-slate-600 font-700">
         Mix Wushu, HIIT, and stair-climbing freely. Each finished guided flow counts.
-      </p>
+      </text>
 
-      <div class="mt-18 flex gap-12">
-        <view
-          class="home-action home-action--primary flex-1"
-          role="button"
-          tabindex="0"
-          @click="openTrainingSelection"
-          @keydown.enter.prevent="openTrainingSelection"
-          @keydown.space.prevent="openTrainingSelection"
+      <view class="home-page__actions">
+        <navigator
+          class="home-action home-action--primary"
+          hover-class="home-action--pressed"
+          url="/pages/training/select"
         >
-          Start training
-        </view>
-        <view
+          <text>Start training</text>
+        </navigator>
+        <navigator
           class="home-action home-action--secondary"
-          role="button"
-          tabindex="0"
-          @click="openGrowthCenter"
-          @keydown.enter.prevent="openGrowthCenter"
-          @keydown.space.prevent="openGrowthCenter"
+          hover-class="home-action--pressed"
+          url="/pages/growth/index"
         >
-          Open growth
-        </view>
-      </div>
-    </section>
+          <text>Open growth</text>
+        </navigator>
+      </view>
+    </view>
   </UniTrainingPageShell>
 </template>
 
 <style scoped>
-.home-action {
+.home-page__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.home-page__hero-tag {
   display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 22rpx;
+  border-radius: 9999px;
+  border: 4rpx solid rgba(255, 211, 132, 0.24);
+  background: rgba(255, 211, 132, 0.14);
+  color: #D97706;
+  font-size: 24rpx;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.home-page__hero-tag--teal {
+  border-color: rgba(137, 207, 255, 0.24);
+  background: rgba(137, 207, 255, 0.14);
+  color: #2B7CB8;
+}
+
+.home-page__hero-copy {
+  display: block;
+  color: #64748B;
+  font-size: 34rpx;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.home-page__actions {
+  margin-top: 36rpx;
+  display: flex;
+  gap: 24rpx;
+}
+
+.home-action {
+  display: flex;
   flex: 1 1 0;
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 4rem;
+  min-height: 108rpx;
   border-radius: 9999px;
-  padding: 1rem 1.25rem;
-  font-size: 44rpx;
+  padding: 16rpx 24rpx;
+  font-size: 32rpx;
   line-height: 1.3;
   text-align: center;
-  font-weight: 700;
-  box-shadow: 0 6px 0 rgba(26, 32, 44, 0.08);
+  font-weight: 900;
   transition: transform 160ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 
 .home-action--primary {
-  background: #ff7f6a;
+  background: #FF8B8B;
   color: white;
+  box-shadow: 0 8rpx 0 #DE6E6E;
+}
+
+.home-action--primary:active {
+  transform: translateY(4rpx);
+  box-shadow: 0 4rpx 0 #DE6E6E;
 }
 
 .home-action--secondary {
-  background: rgb(241 245 249);
-  color: rgb(71 85 105);
+  background: white;
+  color: #1A202C;
+  border: 6rpx solid #FFEAC2;
+  box-shadow: 0 8rpx 0 rgba(0, 0, 0, 0.04);
+}
+
+.home-action--secondary:active {
+  transform: translateY(4rpx);
+  box-shadow: 0 4rpx 0 rgba(0, 0, 0, 0.04);
+}
+
+.home-action--pressed {
+  transform: translateY(4rpx);
 }
 </style>

@@ -59,21 +59,34 @@ function goGrowthCenter() {
       :summary="session?.analysis.summary ?? 'Great work finishing the guided flow.'"
     />
 
-    <div class="flex gap-12">
+    <view class="feedback-page__actions">
       <button
-        class="flex-1 rounded-full border-none bg-brand-coral px-16 py-14 text-15 font-700 text-white"
+        class="btn-primary feedback-page__primary-action"
         type="button"
         @click="goHome"
       >
-        Back home
+        <text>Back home</text>
       </button>
       <button
-        class="rounded-full border-none bg-slate-100 px-16 py-14 text-15 font-600 text-slate-600"
+        class="btn-secondary feedback-page__secondary-action"
         type="button"
         @click="goGrowthCenter"
       >
-        Growth center
+        <text>Growth center</text>
       </button>
-    </div>
+    </view>
   </UniTrainingPageShell>
 </template>
+
+<style scoped>
+.feedback-page__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+}
+
+.feedback-page__primary-action,
+.feedback-page__secondary-action {
+  width: 100%;
+}
+</style>
