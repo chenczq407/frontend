@@ -44,30 +44,105 @@ function handleContinue() {
 </script>
 
 <template>
-  <section class="rounded-12 border border-slate-200 bg-white p-24">
-    <p class="text-[40rpx] font-700 text-slate-500">{{ checkpointLabel }} assessment</p>
-    <h2 class="mt-10 text-[96rpx] font-800 text-brand-ink">{{ percentage }}%</h2>
-    <p class="mt-8 text-[48rpx] text-slate-700">Score: {{ score }}</p>
-    <p class="mt-8 text-[56rpx] font-700 text-brand-ink">{{ level }}</p>
-    <p v-if="submittedAtLabel" class="mt-12 text-[40rpx] text-slate-500">
-      Submitted: {{ submittedAtLabel }}
-    </p>
-    <view
-      class="btn-primary mt-20 result-card__cta"
-      role="button"
-      tabindex="0"
-      @click="handleContinue"
-      @keydown.enter.prevent="handleContinue"
-      @keydown.space.prevent="handleContinue"
-    >
-      Continue to Home
+  <view class="card-shell result-card">
+    <view class="result-card__hero-badge">
+      <text>🏅</text>
     </view>
-  </section>
+
+    <view class="result-card__hero text-center">
+      <view class="chip-soft bg-brand-teal/15 text-[#2B7CB8] border-2 border-brand-teal/25 mx-auto mb-[32rpx]">
+        <text>{{ checkpointLabel }} assessment</text>
+      </view>
+
+      <text class="block text-[144rpx] font-900 text-brand-coral">{{ percentage }}%</text>
+      <text class="block mt-[16rpx] text-[48rpx] font-800 text-slate-600">Score: {{ score }}</text>
+    </view>
+
+    <view class="result-card__summary-grid">
+      <view class="result-card__score-tile">
+        <text class="block text-[24rpx] uppercase tracking-widest text-white/60 font-800">Checkpoint score</text>
+        <text class="block mt-[20rpx] text-[40rpx] font-900 text-white">{{ level }}</text>
+      </view>
+      <view class="result-card__score-tile result-card__score-tile--soft">
+        <text class="block text-[24rpx] uppercase tracking-widest text-[#2B7CB8] font-800">Submitted</text>
+        <text v-if="submittedAtLabel" class="block text-[32rpx] text-slate-500 font-800">
+          {{ submittedAtLabel }}
+        </text>
+        <text v-else class="block text-[32rpx] text-slate-500 font-800">
+          Ready just now
+        </text>
+      </view>
+    </view>
+
+    <view class="mt-[32rpx] inline-flex items-center gap-[16rpx] px-[40rpx] py-[16rpx] bg-brand-leaf/15 rounded-full border-2 border-brand-leaf/25 self-center">
+      <text class="text-[40rpx] font-900 text-[#065F46]">{{ level }}</text>
+    </view>
+
+    <button
+      class="btn-primary mt-[48rpx] result-card__cta"
+      type="button"
+      @click="handleContinue"
+    >
+      <text>Continue to Home ✨</text>
+    </button>
+  </view>
 </template>
 
 <style scoped>
-.result-card__cta {
-  min-height: 4.25rem;
-  white-space: nowrap;
+.result-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+  text-align: center;
+}
+
+.result-card__hero-badge {
+  display: inline-flex;
+  width: 132rpx;
+  height: 132rpx;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  border: 8rpx solid #ffffff;
+  background: rgba(255, 211, 132, 0.22);
+  box-shadow: 0 12rpx 0 rgba(255, 211, 132, 0.18);
+  font-size: 60rpx;
+}
+
+.result-card__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.result-card__summary-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  margin-top: 16rpx;
+}
+
+.result-card__score-tile {
+  flex: 1 1 240rpx;
+  min-width: 0;
+  display: flex;
+  min-height: 180rpx;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 40rpx;
+  padding: 32rpx;
+  background: #1A202C;
+  box-shadow: 0 10rpx 0 rgba(26, 32, 44, 0.12);
+}
+
+.result-card__score-tile--soft {
+  border: 6rpx solid rgba(137, 207, 255, 0.22);
+  background: rgba(137, 207, 255, 0.12);
+  box-shadow: none;
+}
+
+.result-card__cta::after {
+  display: none;
 }
 </style>
