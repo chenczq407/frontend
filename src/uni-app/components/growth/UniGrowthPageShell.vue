@@ -14,7 +14,7 @@
   overflow: hidden;
   min-height: 100vh;
   background: #FCF7F0;
-  padding: 48rpx 32rpx 72rpx;
+  padding: 56rpx 32rpx 96rpx;
 }
 
 .growth-shell__halo {
@@ -46,6 +46,6 @@
   width: min(880px, 100%);
   display: flex;
   flex-direction: column;
-  gap: 32rpx;
+  gap: 40rpx;
 }
 </style>

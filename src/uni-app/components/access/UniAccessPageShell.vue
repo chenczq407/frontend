@@ -49,7 +49,7 @@ defineProps<{
   min-height: 100vh;
   overflow: hidden;
   background: #FCF7F0;
-  padding: 48rpx;
+  padding: 56rpx 48rpx 120rpx;
   color: #1A202C;
 }
 
@@ -82,14 +82,14 @@ defineProps<{
   display: flex;
   max-width: 720px;
   flex-direction: column;
-  gap: 32rpx;
+  gap: 40rpx;
 }
 
 .access-entry__hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28rpx;
+  gap: 32rpx;
   text-align: center;
 }
 
@@ -113,8 +113,8 @@ defineProps<{
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 20rpx;
-  padding: 36rpx 32rpx;
+  gap: 24rpx;
+  padding: 40rpx 36rpx;
   border: 8rpx solid rgba(255, 211, 132, 0.35);
   border-radius: 48rpx;
   background: rgba(255, 255, 255, 0.94);

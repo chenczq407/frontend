@@ -14,7 +14,7 @@
   min-height: 100vh;
   overflow: hidden;
   background: #FCF7F0;
-  padding: 48rpx 32rpx 72rpx;
+  padding: 56rpx 32rpx 96rpx;
 }
 
 .training-shell__halo {
@@ -46,6 +46,6 @@
   display: flex;
   max-width: 840px;
   flex-direction: column;
-  gap: 24rpx;
+  gap: 36rpx;
 }
 </style>
