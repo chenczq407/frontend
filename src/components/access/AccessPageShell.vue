@@ -47,7 +47,7 @@ defineProps<Props>()
   min-height: 100vh;
   overflow: hidden;
   background: #FCF7F0;
-  padding: 48rpx 48rpx 192rpx;
+  padding: 56rpx 48rpx 216rpx;
 }
 
 .access-shell__halo {
@@ -79,14 +79,14 @@ defineProps<Props>()
   display: flex;
   max-width: 960rpx;
   flex-direction: column;
-  gap: 40rpx;
+  gap: 56rpx;
 }
 
 .access-shell__hero {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28rpx;
+  gap: 36rpx;
   text-align: center;
 }
 
@@ -110,8 +110,8 @@ defineProps<Props>()
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24rpx;
-  padding: 40rpx 36rpx;
+  gap: 28rpx;
+  padding: 44rpx 40rpx;
   border: 8rpx solid rgba(255, 211, 132, 0.35);
   border-radius: 52rpx;
   background: rgba(255, 255, 255, 0.92);
