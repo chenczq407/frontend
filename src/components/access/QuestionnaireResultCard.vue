@@ -48,6 +48,9 @@ function handleContinue() {
     <view class="result-card__hero-badge">
       <text>🏅</text>
     </view>
+    <view class="result-card__sticker">
+      <text>Checkpoint</text>
+    </view>
 
     <view class="result-card__hero text-center">
       <view class="chip-soft bg-brand-teal/15 text-[#2B7CB8] border-2 border-brand-teal/25 mx-auto mb-[32rpx]">
@@ -110,6 +113,25 @@ function handleContinue() {
   font-size: 60rpx;
 }
 
+.result-card__sticker {
+  display: inline-flex;
+  width: fit-content;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 22rpx;
+  border-radius: 9999px;
+  border: 4rpx solid #ffffff;
+  background: #89cfff;
+  box-shadow: 0 8rpx 0 rgba(137, 207, 255, 0.2);
+  color: #1a202c;
+  font-size: 24rpx;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transform: rotate(4deg);
+}
+
 .result-card__hero {
   display: flex;
   flex-direction: column;
@@ -144,5 +166,9 @@ function handleContinue() {
 
 .result-card__cta::after {
   display: none;
+}
+
+.result-card__cta {
+  margin-top: 64rpx;
 }
 </style>

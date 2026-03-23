@@ -12,6 +12,9 @@ defineProps<{
       <view class="session-feedback-card__hero-badge">
         <text>🎉</text>
       </view>
+      <view class="session-feedback-card__sticker">
+        <text>Awesome!</text>
+      </view>
       <view class="chip-soft bg-brand-leaf/15 text-[#065F46] border-2 border-brand-leaf/25">
         <text>Session completed</text>
       </view>
@@ -45,6 +48,7 @@ defineProps<{
   display: flex;
   flex-direction: column;
   gap: 20rpx;
+  position: relative;
 }
 
 .session-feedback-card__hero-badge {
@@ -60,10 +64,29 @@ defineProps<{
   font-size: 56rpx;
 }
 
+.session-feedback-card__sticker {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 10rpx 22rpx;
+  border-radius: 9999px;
+  border: 4rpx solid #ffffff;
+  background: #ffd384;
+  box-shadow: 0 8rpx 0 rgba(255, 211, 132, 0.22);
+  color: #1a202c;
+  font-size: 24rpx;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transform: rotate(-5deg);
+}
+
 .session-feedback-card__stats {
   display: flex;
   flex-wrap: wrap;
   gap: 20rpx;
+  margin-top: 56rpx;
 }
 
 .session-feedback-card__score-tile,
