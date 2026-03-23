@@ -18,78 +18,87 @@ const metrics = computed(() => hasPhysicalMetrics(props.metricsState) ? props.me
 </script>
 
 <template>
-  <section class="metrics" aria-label="Physical metrics panel">
-    <p v-if="!hasMetrics" class="metrics__empty">{{ emptyMessage }}</p>
+  <view class="metrics" aria-label="Physical metrics panel">
+    <text v-if="!hasMetrics" class="metrics__empty">{{ emptyMessage }}</text>
 
-    <article v-for="metric in metrics" :key="metric.label" class="metric-card">
-      <header class="metric-card__header">
-        <h4 class="metric-card__label">{{ metric.label }}</h4>
-        <span class="metric-card__unit">{{ metric.unit }}</span>
-      </header>
+    <view v-for="metric in metrics" :key="metric.label" class="metric-card">
+      <view class="metric-card__header">
+        <text class="metric-card__label">{{ metric.label }}</text>
+        <text class="metric-card__unit">{{ metric.unit }}</text>
+      </view>
 
-      <ul class="metric-card__trend" aria-label="Metric trend values">
-        <li v-for="(value, index) in metric.values" :key="index" class="metric-card__point">
+      <view class="metric-card__trend" aria-label="Metric trend values">
+        <text v-for="(value, index) in metric.values" :key="index" class="metric-card__point">
           {{ value }}
-        </li>
-      </ul>
-    </article>
-  </section>
+        </text>
+      </view>
+    </view>
+  </view>
 </template>
 
 <style scoped>
 .metrics {
-  display: grid;
-  gap: 0.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
 }
 
 .metrics__empty {
+  display: block;
   margin: 0;
-  padding: 0.8rem;
-  border-radius: 10px;
-  background: #f8fafc;
-  color: #4f5f78;
-  border: 1px dashed #bdd0ec;
+  padding: 40rpx;
+  border-radius: 48rpx;
+  background: rgba(255, 211, 132, 0.06);
+  color: #64748B;
+  border: 8rpx dashed rgba(255, 211, 132, 0.3);
+  font-weight: 600;
+  font-size: 28rpx;
 }
 
 .metric-card {
-  border: 1px solid #d9e4f8;
-  border-radius: 10px;
-  padding: 0.75rem;
+  border: 8rpx solid rgba(255, 211, 132, 0.2);
+  border-radius: 48rpx;
+  padding: 40rpx;
   background: #fff;
+  box-shadow: 0 12rpx 0px rgba(0, 0, 0, 0.04);
 }
 
 .metric-card__header {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 0.5rem;
+  gap: 16rpx;
 }
 
 .metric-card__label {
   margin: 0;
-  color: #243e74;
-  font-size: 0.95rem;
+  color: #1A202C;
+  font-size: 32rpx;
+  font-weight: 900;
 }
 
 .metric-card__unit {
-  color: #596b88;
-  font-size: 0.8rem;
+  color: #64748B;
+  font-size: 24rpx;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .metric-card__trend {
   display: flex;
-  gap: 0.35rem;
+  gap: 16rpx;
   flex-wrap: wrap;
-  margin: 0.5rem 0 0;
+  margin: 24rpx 0 0;
   padding: 0;
-  list-style: none;
 }
 
 .metric-card__point {
   border-radius: 999px;
-  background: #eef4ff;
-  color: #1c3270;
-  padding: 0.2rem 0.45rem;
-  font-size: 0.78rem;
+  background: rgba(137, 207, 255, 0.15);
+  color: #1A202C;
+  padding: 8rpx 24rpx;
+  font-size: 26rpx;
+  font-weight: 700;
 }
 </style>

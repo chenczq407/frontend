@@ -39,49 +39,47 @@ function cellClass(day: GrowthCalendarDay): string {
 </script>
 
 <template>
-  <section class="adherence" aria-label="Adherence heatmap">
-    <div v-for="(week, weekIndex) in groupedWeeks" :key="weekIndex" class="adherence-week">
-      <div
+  <view class="adherence" aria-label="Adherence heatmap">
+    <view v-for="(week, weekIndex) in groupedWeeks" :key="weekIndex" class="adherence-week">
+      <view
         v-for="day in week"
         :key="day.date"
         :class="cellClass(day)"
         :title="`${day.date}: ${day.completedSessions} completed session(s)`"
       />
-    </div>
-  </section>
+    </view>
+  </view>
 </template>
 
 <style scoped>
 .adherence {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min-content;
-  gap: 0.4rem;
+  display: flex;
+  gap: 16rpx;
   overflow-x: auto;
-  padding-bottom: 0.25rem;
+  padding-bottom: 8rpx;
 }
 
 .adherence-week {
-  display: grid;
-  grid-template-rows: repeat(7, 1fr);
-  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
 }
 
 .adherence-cell {
-  width: 0.8rem;
-  height: 0.8rem;
-  border-radius: 3px;
+  width: 32rpx;
+  height: 32rpx;
+  border-radius: 9999px;
 }
 
 .adherence-cell--met {
-  background: #3b82f6;
+  background: #FF8B8B;
 }
 
 .adherence-cell--partial {
-  background: #93c5fd;
+  background: rgba(255, 139, 139, 0.35);
 }
 
 .adherence-cell--none {
-  background: #dbe5f8;
+  background: #f1f5f9;
 }
 </style>

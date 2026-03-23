@@ -8,64 +8,96 @@ defineProps<{
 </script>
 
 <template>
-  <section class="summary-cards" aria-label="Growth summary cards">
-    <article v-for="card in cards" :key="card.key" class="summary-card">
-      <p class="summary-card__label">{{ card.label }}</p>
-      <p class="summary-card__value">{{ card.value }}</p>
-      <p class="summary-card__description">{{ card.description }}</p>
-    </article>
+  <view class="summary-cards" aria-label="Growth summary cards">
+    <view v-for="card in cards" :key="card.key" class="summary-card">
+      <view class="summary-card__pill">
+        <text class="summary-card__label">{{ card.label }}</text>
+      </view>
+      <text class="summary-card__value">{{ card.value }}</text>
+      <text class="summary-card__description">{{ card.description }}</text>
+    </view>
 
-    <article class="summary-card summary-card--assessment">
-      <p class="summary-card__label">Latest Assessment</p>
-      <p class="summary-card__value">
+    <view class="summary-card summary-card--assessment summary-card--highlight">
+      <view class="summary-card__pill">
+        <text class="summary-card__label">Latest Assessment</text>
+      </view>
+      <text class="summary-card__value">
         {{ latestAssessment ? latestAssessment.checkpoint.toUpperCase() : 'No data yet' }}
-      </p>
-      <p class="summary-card__description">
+      </text>
+      <text class="summary-card__description">
         {{
           latestAssessment
             ? `Score ${latestAssessment.score} (${latestAssessment.percentage}%)`
             : 'Complete a long questionnaire to unlock this trend.'
         }}
-      </p>
-    </article>
-  </section>
+      </text>
+    </view>
+  </view>
 </template>
 
 <style scoped>
 .summary-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32rpx;
 }
 
 .summary-card {
-  border: 1px solid #d8e2ff;
-  border-radius: 12px;
-  padding: 0.75rem;
+  flex: 1 1 360rpx;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+  border: 8rpx solid rgba(255, 211, 132, 0.28);
+  border-radius: 48rpx;
+  padding: 40rpx;
   background: #fff;
+  box-shadow: 0 12rpx 0px rgba(0, 0, 0, 0.05);
 }
 
 .summary-card--assessment {
-  border-color: #7da2ff;
-  background: #f3f7ff;
+  border-color: rgba(137, 207, 255, 0.3);
+  background: rgba(137, 207, 255, 0.06);
+}
+
+.summary-card__pill {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 20rpx;
+  border-radius: 9999px;
+  background: rgba(255, 211, 132, 0.16);
+  border: 4rpx solid rgba(255, 211, 132, 0.24);
+}
+
+.summary-card--highlight .summary-card__pill {
+  background: rgba(137, 207, 255, 0.14);
+  border-color: rgba(137, 207, 255, 0.24);
 }
 
 .summary-card__label {
+  display: block;
   margin: 0;
-  color: #4b5e8a;
-  font-size: 0.85rem;
+  color: #475569;
+  font-size: 24rpx;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
 }
 
 .summary-card__value {
-  margin: 0.35rem 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: #1c2b59;
+  display: block;
+  font-size: 48rpx;
+  font-weight: 900;
+  color: #1A202C;
 }
 
 .summary-card__description {
+  display: block;
   margin: 0;
-  color: #5a6780;
-  font-size: 0.78rem;
+  color: #64748B;
+  font-size: 26rpx;
+  font-weight: 600;
 }
 </style>
