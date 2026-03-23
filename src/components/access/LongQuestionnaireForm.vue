@@ -53,17 +53,17 @@ function optionClasses(isSelected: boolean) {
 </script>
 
 <template>
-  <form class="flex flex-col gap-[32rpx]" @submit.prevent="handleSubmit">
+  <form class="long-questionnaire-form" @submit.prevent="handleSubmit">
     <view
       v-for="question in questions"
       :key="question.id"
-      class="bg-white rounded-[32rpx] p-[40rpx] border-4 border-brand-gold/20 chunky-shadow"
+      class="long-questionnaire-form__card bg-white rounded-[32rpx] border-4 border-brand-gold/20 chunky-shadow"
     >
-      <text class="block text-[36rpx] font-800 text-[#1A202C] leading-snug mb-[32rpx] tracking-tight">{{ question.prompt }}</text>
+      <text class="long-questionnaire-form__prompt block text-[36rpx] font-800 text-[#1A202C] tracking-tight">{{ question.prompt }}</text>
       
-      <view class="flex items-center justify-between gap-[12rpx]">
+      <view class="long-questionnaire-form__options">
         <view v-for="value in 5" :key="value"
-          class="relative flex flex-col items-center gap-[12rpx] flex-1"
+          class="long-questionnaire-form__option"
           @click="handleResponseChange(question.id, value)"
         >
           <view class="rating-option rating-option--circle mx-auto" :class="optionClasses(responses[question.id] === value)">
@@ -73,7 +73,7 @@ function optionClasses(isSelected: boolean) {
       </view>
     </view>
 
-    <view class="mt-[32rpx] pb-[48rpx]">
+    <view class="long-questionnaire-form__actions">
       <button form-type="submit" class="btn-primary" :disabled="!isComplete">
         <text v-if="!isComplete">Complete all questions First</text>
         <text v-else>Submit Answers ✨</text>
@@ -84,4 +84,43 @@ function optionClasses(isSelected: boolean) {
 
 <style scoped>
 @import '../../features/questionnaire/ratingOptionStyles.css';
+
+.long-questionnaire-form {
+  display: flex;
+  flex-direction: column;
+  gap: 40rpx;
+}
+
+.long-questionnaire-form__card {
+  display: flex;
+  flex-direction: column;
+  padding: 44rpx 40rpx;
+}
+
+.long-questionnaire-form__prompt {
+  line-height: 1.3;
+  margin-bottom: 40rpx;
+}
+
+.long-questionnaire-form__options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.long-questionnaire-form__option {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 12rpx;
+}
+
+.long-questionnaire-form__actions {
+  margin-top: 40rpx;
+  padding-bottom: 72rpx;
+}
 </style>
