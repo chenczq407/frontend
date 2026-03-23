@@ -16,6 +16,7 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
 <template>
   <main class="growth-page">
     <header class="growth-page__header">
+      <div class="growth-page__eyebrow">Progress Playground</div>
       <h1 class="growth-page__title">Growth Center</h1>
       <p class="growth-page__subtitle">
         Track your training consistency, assessments, and achievements.
@@ -24,7 +25,7 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
 
     <GrowthSummaryCards :cards="summary.summaryCards" :latest-assessment="summary.latestAssessment" />
 
-    <section class="growth-page__section">
+    <section class="growth-page__section growth-page__section-shell">
       <div class="growth-page__section-head">
         <h2 class="growth-page__section-title">Adherence Calendar</h2>
         <RouterLink class="growth-page__link" to="/growth/adherence">View details</RouterLink>
@@ -32,7 +33,7 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
       <AdherenceHeatmap :days="summary.adherenceCalendar" />
     </section>
 
-    <section class="growth-page__section">
+    <section class="growth-page__section growth-page__section-shell">
       <div class="growth-page__section-head">
         <h2 class="growth-page__section-title">Achievements</h2>
         <RouterLink class="growth-page__link" to="/growth/achievements">View details</RouterLink>
@@ -40,7 +41,7 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
       <AchievementBadgeList :achievements="summary.achievements" />
     </section>
 
-    <section class="growth-page__section">
+    <section class="growth-page__section growth-page__section-shell">
       <div class="growth-page__section-head">
         <h2 class="growth-page__section-title">Physical Metrics</h2>
         <RouterLink class="growth-page__link" to="/growth/metrics">View details</RouterLink>
@@ -54,32 +55,58 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
 .growth-page {
   margin: 0 auto;
   width: min(880px, 100%);
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 1rem;
   padding: 1.25rem;
 }
 
 .growth-page__header {
-  display: grid;
-  gap: 0.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.growth-page__eyebrow {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.9rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(255, 211, 132, 0.26);
+  background: rgba(255, 211, 132, 0.16);
+  color: #d97706;
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
 }
 
 .growth-page__title {
   margin: 0;
-  color: #1f3568;
+  color: #1A202C;
+  font-size: 2.4rem;
+  letter-spacing: -0.04em;
 }
 
 .growth-page__subtitle {
   margin: 0;
-  color: #566884;
-  font-size: 0.9rem;
+  color: #64748B;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 700;
 }
 
 .growth-page__section {
-  border: 1px solid #d8e3f8;
-  border-radius: 12px;
-  padding: 0.85rem;
-  background: #fbfdff;
+  padding: 1rem;
+}
+
+.growth-page__section-shell {
+  border: 4px solid rgba(255, 211, 132, 0.24);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 8px 0 rgba(0, 0, 0, 0.05);
 }
 
 .growth-page__section-head {
@@ -92,29 +119,35 @@ const physicalMetricsState = computed(() => resolvePhysicalMetricsState(state))
 
 .growth-page__section-title {
   margin: 0;
-  font-size: 1rem;
-  color: #243f72;
+  font-size: 1.05rem;
+  color: #1A202C;
+  font-weight: 900;
 }
 
 .growth-page__link {
-  color: #355fb4;
-  font-size: 0.8rem;
+  color: #2B7CB8;
+  font-size: 0.72rem;
   text-decoration: none;
   border-radius: 9999px;
-  padding: 0.2rem 0.45rem;
+  padding: 0.45rem 0.8rem;
+  border: 2px solid rgba(137, 207, 255, 0.26);
+  background: rgba(137, 207, 255, 0.12);
   transition: color 160ms ease, background-color 160ms ease, text-decoration-color 160ms ease;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .growth-page__link:hover {
-  color: #1f3568;
-  background: #eaf1ff;
+  color: #1A202C;
+  background: rgba(255, 211, 132, 0.16);
   text-decoration: underline;
 }
 
 .growth-page__link:focus-visible {
-  outline: 2px solid #355fb4;
+  outline: 2px solid #2B7CB8;
   outline-offset: 2px;
-  background: #eaf1ff;
+  background: rgba(255, 211, 132, 0.16);
   text-decoration: underline;
 }
 </style>
