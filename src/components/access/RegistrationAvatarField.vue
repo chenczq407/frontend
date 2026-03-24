@@ -23,13 +23,13 @@ const emit = defineEmits<{
         :src="props.avatarUrl"
         mode="aspectFill"
       />
-      <text v-else class="avatar-field__preview-placeholder">Add photo</text>
+      <text v-else class="avatar-field__preview-placeholder">添加照片</text>
     </view>
 
     <view class="avatar-field__content">
-      <text class="avatar-field__label">Profile Photo</text>
+      <text class="avatar-field__label">个人头像</text>
       <text class="avatar-field__hint">
-        Choose a WeChat avatar or upload a photo from your album or camera.
+        可选择微信头像，或从相册/相机上传照片。
       </text>
 
       <view class="avatar-field__actions">
@@ -39,22 +39,22 @@ const emit = defineEmits<{
           open-type="chooseAvatar"
           @chooseavatar="emit('chooseWechatAvatar', $event)"
         >
-          <text>Use WeChat avatar</text>
+          <text>使用微信头像</text>
         </button>
 
         <button
           class="avatar-field__button avatar-field__button--upload"
           @click="emit('chooseImage')"
         >
-          <text>Upload from album or camera</text>
+          <text>从相册或相机上传</text>
         </button>
       </view>
 
       <text v-if="props.uploadState === 'uploading'" class="avatar-field__status">
-        Uploading avatar...
+        正在上传头像...
       </text>
       <text v-else-if="props.uploadState === 'success'" class="avatar-field__status avatar-field__status--success">
-        Avatar is ready for registration.
+        头像已准备好，可用于注册。
       </text>
       <text v-else-if="props.uploadState === 'error'" class="avatar-field__status avatar-field__status--error">
         {{ props.errorMessage }}

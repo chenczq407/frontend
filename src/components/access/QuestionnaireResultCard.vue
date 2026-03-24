@@ -49,12 +49,12 @@ function handleContinue() {
       <text>🏅</text>
     </view>
     <view class="result-card__sticker">
-      <text>Checkpoint</text>
+      <text>评估点</text>
     </view>
 
     <view class="result-card__hero text-center">
       <view class="chip-soft bg-brand-teal/15 text-[#2B7CB8] border-2 border-brand-teal/25 mx-auto mb-[32rpx]">
-        <text>{{ checkpointLabel }} assessment</text>
+        <text>{{ checkpointLabel }} 评估</text>
       </view>
 
       <text class="block text-[144rpx] font-900 text-brand-coral">{{ percentage }}%</text>

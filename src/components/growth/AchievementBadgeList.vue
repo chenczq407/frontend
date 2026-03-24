@@ -30,7 +30,7 @@ function badgeEmoji(id: string) {
         <text class="badge__emoji">{{ badgeEmoji(badge.id) }}</text>
       </view>
       <view class="badge__status-pill" :class="badge.earned ? 'badge__status-pill--earned' : ''">
-        <text>{{ badge.earned ? 'Earned' : 'Locked' }}</text>
+        <text>{{ badge.earned ? '已获得' : '未解锁' }}</text>
       </view>
       <text class="badge__title">{{ badge.title }}</text>
       <text class="badge__description">{{ badge.description }}</text>

@@ -18,7 +18,7 @@ const orderedHistory = computed(() => {
       <view v-for="checkpoint in orderedHistory" :key="checkpoint.checkpoint" class="assessment-item">
         <text class="assessment-item__name block">{{ checkpoint.checkpoint.toUpperCase() }}</text>
         <text class="assessment-item__result block">
-          {{ checkpoint.completed ? `Score ${checkpoint.score} · ${checkpoint.percentage}%` : 'Not completed yet' }}
+          {{ checkpoint.completed ? `得分 ${checkpoint.score} · ${checkpoint.percentage}%` : '尚未完成' }}
         </text>
       </view>
     </view>

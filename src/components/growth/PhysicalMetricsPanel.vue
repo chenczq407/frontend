@@ -13,7 +13,7 @@ function hasPhysicalMetrics(
 }
 
 const hasMetrics = computed(() => props.metricsState.hasMetrics)
-const emptyMessage = computed(() => hasPhysicalMetrics(props.metricsState) ? '' : props.metricsState.message)
+const emptyMessage = computed(() => hasPhysicalMetrics(props.metricsState) ? '' : (props.metricsState.message ? props.metricsState.message.replace('Physical metrics will appear here after body-test data is imported.', '导入体测数据后将在此显示体能指标。') : ''))
 const metrics = computed(() => hasPhysicalMetrics(props.metricsState) ? props.metricsState.metrics : [])
 </script>
 

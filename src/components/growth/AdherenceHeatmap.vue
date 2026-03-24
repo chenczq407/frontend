@@ -45,7 +45,7 @@ function cellClass(day: GrowthCalendarDay): string {
         v-for="day in week"
         :key="day.date"
         :class="cellClass(day)"
-        :title="`${day.date}: ${day.completedSessions} completed session(s)`"
+        :title="`${day.date}：已完成 ${day.completedSessions} 次训练`"
       />
     </view>
   </view>

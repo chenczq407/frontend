@@ -17,8 +17,8 @@ const modeMeta = computed(() => {
   if (props.modality === 'wushu') {
     return {
       emoji: '🥋',
-      kicker: 'Camera Quest',
-      cta: 'Open flow',
+      kicker: '武术挑战',
+      cta: '开启引导',
       chipBackground: '#FF8B8B',
       chipColor: '#FFFFFF'
     }
@@ -27,8 +27,8 @@ const modeMeta = computed(() => {
   if (props.modality === 'hiit') {
     return {
       emoji: '⚡',
-      kicker: 'Rhythm Rush',
-      cta: 'Start burst',
+      kicker: '节奏冲刺',
+      cta: '开始爆发',
       chipBackground: '#FFD384',
       chipColor: '#1A202C'
     }
@@ -36,8 +36,8 @@ const modeMeta = computed(() => {
 
   return {
     emoji: '🪜',
-    kicker: 'Step Sprint',
-    cta: 'Climb now',
+    kicker: '阶梯冲刺',
+    cta: '立即攀登',
     chipBackground: '#89CFFF',
     chipColor: '#1A202C'
   }
