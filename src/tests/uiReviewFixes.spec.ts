@@ -751,10 +751,14 @@ describe('ui review fixes', () => {
       'utf8'
     )
 
+    expect(avatarField).toContain('avatar-field__trigger')
+    expect(avatarField).toContain('avatar-field__picker-panel')
+    expect(avatarField).not.toContain('avatar-field__actions')
     expect(avatarField).toContain('open-type="chooseAvatar"')
     expect(avatarField).toContain('@chooseavatar=')
     expect(avatarComposable).toContain('detail?.avatarUrl')
     expect(avatarComposable).toContain('uni.chooseImage')
+    expect(avatarComposable).toContain('function selectImageSource')
     expect(avatarComposable).toContain('sourceType: [source]')
     expect(avatarComposable).toContain('uni.uploadFile')
     expect(avatarComposable).toContain("name: 'file'")

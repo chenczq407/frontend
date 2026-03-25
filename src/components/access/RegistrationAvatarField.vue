@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { shallowRef } from 'vue'
 import type { AvatarUploadState } from '../../uni-app/composables/useRegistrationAvatar'
 
 const props = defineProps<{
@@ -10,8 +11,24 @@ const props = defineProps<{
 
 const emit = defineEmits<{
   chooseWechatAvatar: [event: { detail?: { avatarUrl?: string } }]
-  chooseImage: []
+  chooseImageSource: [source: 'album' | 'camera']
 }>()
+
+const isPickerOpen = shallowRef(false)
+
+function togglePicker() {
+  isPickerOpen.value = !isPickerOpen.value
+}
+
+function handleChooseWechatAvatar(event: { detail?: { avatarUrl?: string } }) {
+  emit('chooseWechatAvatar', event)
+  isPickerOpen.value = false
+}
+
+function handleChooseImageSource(source: 'album' | 'camera') {
+  emit('chooseImageSource', source)
+  isPickerOpen.value = false
+}
 </script>
 
 <template>
@@ -66,13 +83,27 @@ const emit = defineEmits<{
 <style scoped>
 .avatar-field {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 24rpx;
-  padding: 28rpx;
+  flex-direction: column;
+  gap: 18rpx;
+  padding: 24rpx;
   border-radius: 36rpx;
   background: rgba(255, 246, 214, 0.65);
   border: 4rpx solid rgba(255, 211, 132, 0.35);
+}
+
+.avatar-field__trigger {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 24rpx;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  text-align: left;
+}
+
+.avatar-field__trigger::after {
+  border: none;
 }
 
 .avatar-field__preview-shell {
@@ -106,7 +137,7 @@ const emit = defineEmits<{
 .avatar-field__content {
   display: flex;
   min-width: 0;
-  flex: 1 1 320rpx;
+  flex: 1 1 0;
   flex-direction: column;
   gap: 14rpx;
 }
@@ -124,40 +155,6 @@ const emit = defineEmits<{
   font-weight: 700;
 }
 
-.avatar-field__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16rpx;
-  margin-top: 4rpx;
-}
-
-.avatar-field__button {
-  display: inline-flex;
-  min-height: 84rpx;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  padding: 0 28rpx;
-  border-radius: 9999px;
-  font-size: 24rpx;
-  line-height: 1.2;
-  font-weight: 900;
-}
-
-.avatar-field__button::after {
-  border: none;
-}
-
-.avatar-field__button--wechat {
-  color: #166534;
-  background: #DCFCE7;
-}
-
-.avatar-field__button--upload {
-  color: #9A3412;
-  background: #FFEDD5;
-}
-
 .avatar-field__status {
   color: #475569;
   font-size: 24rpx;
@@ -171,5 +168,41 @@ const emit = defineEmits<{
 
 .avatar-field__status--error {
   color: #B91C1C;
+}
+
+.avatar-field__picker-panel {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 14rpx;
+  padding-top: 6rpx;
+}
+
+.avatar-field__picker-option {
+  display: inline-flex;
+  width: 100%;
+  min-height: 84rpx;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 28rpx;
+  border-radius: 9999px;
+  font-size: 24rpx;
+  line-height: 1.2;
+  font-weight: 900;
+}
+
+.avatar-field__picker-option::after {
+  border: none;
+}
+
+.avatar-field__picker-option--wechat {
+  color: #166534;
+  background: #DCFCE7;
+}
+
+.avatar-field__picker-option--upload {
+  color: #9A3412;
+  background: #FFEDD5;
 }
 </style>
