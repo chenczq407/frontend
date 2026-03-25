@@ -18,14 +18,14 @@ const emit = defineEmits<{
 
 const level = computed(() => {
   if (props.percentage >= 85) {
-    return 'Excellent momentum'
+    return '优秀势头'
   }
 
   if (props.percentage >= 65) {
-    return 'Good progress'
+    return '进步良好'
   }
 
-  return 'Needs reinforcement'
+  return '需要加强'
 })
 
 const checkpointLabel = computed(() => CHECKPOINT_LABELS[props.checkpoint])
@@ -63,16 +63,16 @@ function handleContinue() {
 
     <view class="result-card__summary-grid">
       <view class="result-card__score-tile">
-        <text class="block text-[24rpx] uppercase tracking-widest text-white/60 font-800">Checkpoint score</text>
+        <text class="block text-[24rpx] uppercase tracking-widest text-white/60 font-800">评估得分</text>
         <text class="block mt-[20rpx] text-[40rpx] font-900 text-white">{{ level }}</text>
       </view>
       <view class="result-card__score-tile result-card__score-tile--soft">
-        <text class="block text-[24rpx] uppercase tracking-widest text-[#2B7CB8] font-800">Submitted</text>
+        <text class="block text-[24rpx] uppercase tracking-widest text-[#2B7CB8] font-800">提交时间</text>
         <text v-if="submittedAtLabel" class="block text-[32rpx] text-slate-500 font-800">
           {{ submittedAtLabel }}
         </text>
         <text v-else class="block text-[32rpx] text-slate-500 font-800">
-          Ready just now
+          刚刚生成
         </text>
       </view>
     </view>
@@ -86,7 +86,7 @@ function handleContinue() {
       type="button"
       @click="handleContinue"
     >
-      <text>Continue to Home ✨</text>
+      <text>继续前往首页 ✨</text>
     </button>
   </view>
 </template>

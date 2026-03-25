@@ -60,7 +60,7 @@ function openDetailPage(page: 'adherence' | 'achievements' | 'metrics' | 'histor
 
     <view class="growth-page__section growth-page__section-shell">
       <view class="growth-page__section-head">
-        <text class="growth-page__section-title">Physical Metrics</text>
+        <text class="growth-page__section-title">体能指标</text>
         <button class="growth-page__link" type="button" @click="openDetailPage('metrics')">
           <text>查看详情</text>
         </button>
@@ -70,12 +70,12 @@ function openDetailPage(page: 'adherence' | 'achievements' | 'metrics' | 'histor
 
     <view class="growth-page__section growth-page__section-shell">
       <view class="growth-page__section-head">
-        <text class="growth-page__section-title">History</text>
+        <text class="growth-page__section-title">历史记录</text>
         <button class="growth-page__link" type="button" @click="openDetailPage('history')">
           <text>查看详情</text>
         </button>
       </view>
-      <text class="growth-page__subtitle">Open session and questionnaire history.</text>
+      <text class="growth-page__subtitle">查看训练与问卷历史。</text>
     </view>
   </UniGrowthPageShell>
 </template>

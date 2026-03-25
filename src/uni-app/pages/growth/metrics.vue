@@ -7,7 +7,7 @@ import { useStudentStore } from '../../composables/useStudentStore'
 
 const store = useStudentStore()
 const metricsState = computed(() => resolvePhysicalMetricsState(store.getSnapshot()))
-const emptyStateHint = 'Physical metrics will appear here after body-test data is imported.'
+const emptyStateHint = computed(() => metricsState.value.hasMetrics ? '' : metricsState.value.message)
 </script>
 
 <template>
@@ -16,9 +16,7 @@ const emptyStateHint = 'Physical metrics will appear here after body-test data i
     <p class="detail-page__subtitle">导入的体测数据与趋势快照。</p>
 
     <section class="detail-page__card">
-      <p v-if="!metricsState.hasMetrics" class="detail-page__hint">
-        {{ emptyStateHint ? '导入体测数据后将在此显示体能指标。' : '' }}
-      </p>
+      <p v-if="!metricsState.hasMetrics" class="detail-page__hint">{{ emptyStateHint }}</p>
       <PhysicalMetricsPanel :metrics-state="metricsState" />
     </section>
   </UniGrowthPageShell>
