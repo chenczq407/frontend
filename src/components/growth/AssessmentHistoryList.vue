@@ -13,7 +13,7 @@ const orderedHistory = computed(() => {
 </script>
 
 <template>
-  <view class="assessment" aria-label="Assessment history">
+  <view class="assessment" aria-label="评估历史">
     <view class="assessment__list">
       <view v-for="checkpoint in orderedHistory" :key="checkpoint.checkpoint" class="assessment-item">
         <text class="assessment-item__name block">{{ checkpoint.checkpoint.toUpperCase() }}</text>

@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <view class="history" aria-label="Training history">
+  <view class="history" aria-label="训练历史">
     <text v-if="sessions.length === 0" class="history__empty block">暂无已完成训练。</text>
 
     <view v-else class="history__list">

@@ -66,14 +66,14 @@ onShow(() => {
           hover-class="home-action--pressed"
           url="/pages/training/select"
         >
-          <text>Start training</text>
+          <text>开始训练</text>
         </navigator>
         <navigator
           class="home-action home-action--secondary"
           hover-class="home-action--pressed"
           url="/pages/growth/index"
         >
-          <text>Open growth</text>
+          <text>打开成长</text>
         </navigator>
       </view>
     </view>

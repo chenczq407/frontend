@@ -62,7 +62,7 @@ function openDetailPage(page: 'adherence' | 'achievements' | 'metrics' | 'histor
       <view class="growth-page__section-head">
         <text class="growth-page__section-title">Physical Metrics</text>
         <button class="growth-page__link" type="button" @click="openDetailPage('metrics')">
-          <text>View details</text>
+          <text>查看详情</text>
         </button>
       </view>
       <PhysicalMetricsPanel :metrics-state="physicalMetricsState" />
@@ -72,7 +72,7 @@ function openDetailPage(page: 'adherence' | 'achievements' | 'metrics' | 'histor
       <view class="growth-page__section-head">
         <text class="growth-page__section-title">History</text>
         <button class="growth-page__link" type="button" @click="openDetailPage('history')">
-          <text>View details</text>
+          <text>查看详情</text>
         </button>
       </view>
       <text class="growth-page__subtitle">Open session and questionnaire history.</text>

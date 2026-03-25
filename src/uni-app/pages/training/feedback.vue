@@ -65,14 +65,14 @@ function goGrowthCenter() {
         type="button"
         @click="goHome"
       >
-        <text>Back home</text>
+        <text>返回首页</text>
       </button>
       <button
         class="btn-secondary feedback-page__secondary-action"
         type="button"
         @click="goGrowthCenter"
       >
-        <text>Growth center</text>
+        <text>成长中心</text>
       </button>
     </view>
   </UniTrainingPageShell>

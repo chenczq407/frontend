@@ -19,7 +19,7 @@ function badgeEmoji(id: string) {
 </script>
 
 <template>
-  <view class="badge-grid" aria-label="Achievement badges">
+  <view class="badge-grid" aria-label="成就徽章">
     <view
       v-for="badge in achievements"
       :key="badge.id"

@@ -39,7 +39,7 @@ function cellClass(day: GrowthCalendarDay): string {
 </script>
 
 <template>
-  <view class="adherence" aria-label="Adherence heatmap">
+  <view class="adherence" aria-label="坚持热力图">
     <view v-for="(week, weekIndex) in groupedWeeks" :key="weekIndex" class="adherence-week">
       <view
         v-for="day in week"

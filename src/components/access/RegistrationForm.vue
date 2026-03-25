@@ -108,12 +108,12 @@ function handleGradeChange(event: { detail?: { value?: string | number } }) {
       
       <view class="form-stack-field">
         <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Student ID</text>
-        <input v-model.trim="form.studentId" autocomplete="username" class="input-shell registration-input-shell" name="studentId" placeholder="E.g. S-001" />
+        <input v-model.trim="form.studentId" autocomplete="username" class="input-shell registration-input-shell" name="studentId" placeholder="例如：S-001" />
       </view>
 
       <view class="form-stack-field">
         <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Full Name</text>
-        <input v-model.trim="form.name" autocomplete="name" class="input-shell registration-input-shell" name="name" placeholder="E.g. Sporty Sam" />
+        <input v-model.trim="form.name" autocomplete="name" class="input-shell registration-input-shell" name="name" placeholder="例如：运动小明" />
       </view>
 
       <view class="form-row">
@@ -141,7 +141,7 @@ function handleGradeChange(event: { detail?: { value?: string | number } }) {
       <view class="form-row">
         <view class="form-row__field flex flex-col gap-[16rpx]">
           <text class="text-[28rpx] font-800 text-[#1A202C] ml-[12rpx]">Major</text>
-          <input v-model.trim="form.major" autocomplete="organization-title" class="input-shell registration-input-shell" name="major" placeholder="Sci..." />
+          <input v-model.trim="form.major" autocomplete="organization-title" class="input-shell registration-input-shell" name="major" placeholder="理科..." />
         </view>
         
         <view class="form-row__field flex flex-col gap-[16rpx]">
@@ -191,7 +191,7 @@ function handleGradeChange(event: { detail?: { value?: string | number } }) {
     </view>
 
     <view class="form-card__footer-note">
-      <text>Everything here only sets up your starting profile. You can refine it later.</text>
+      <text>这里的一切仅用于设置您的初始个人资料。您可以稍后完善它。</text>
     </view>
 
     <button form-type="submit" class="btn-primary mt-[24rpx] mb-[48rpx]" :disabled="!canSubmit">

@@ -67,7 +67,7 @@ function handleChoose() {
       class="chip-soft training-mode-card__chip border-2"
       :style="{ backgroundColor: modeMeta.chipBackground, color: modeMeta.chipColor }"
     >
-      <text class="training-mode-card__chip-text">{{ props.title }} snack</text>
+      <text class="training-mode-card__chip-text">{{ props.title }} 快餐</text>
     </view>
     <text class="block text-[40rpx] font-900 text-brand-ink tracking-[-0.03em]">{{ props.title }}</text>
     <text class="block text-[32rpx] leading-snug text-slate-600 font-700">{{ props.description }}</text>
@@ -76,7 +76,7 @@ function handleChoose() {
       <view class="training-mode-card__cta">
         <text>{{ modeMeta.cta }}</text>
       </view>
-      <text class="training-mode-card__hint">1 short guided session</text>
+      <text class="training-mode-card__hint">1个简短引导课程</text>
     </view>
   </view>
 </template>

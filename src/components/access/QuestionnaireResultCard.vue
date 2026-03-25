@@ -58,7 +58,7 @@ function handleContinue() {
       </view>
 
       <text class="block text-[144rpx] font-900 text-brand-coral">{{ percentage }}%</text>
-      <text class="block mt-[16rpx] text-[48rpx] font-800 text-slate-600">Score: {{ score }}</text>
+      <text class="block mt-[16rpx] text-[48rpx] font-800 text-slate-600">分数：{{ score }}</text>
     </view>
 
     <view class="result-card__summary-grid">

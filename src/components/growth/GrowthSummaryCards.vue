@@ -8,7 +8,7 @@ defineProps<{
 </script>
 
 <template>
-  <view class="summary-cards" aria-label="Growth summary cards">
+  <view class="summary-cards" aria-label="成长总结卡片">
     <view v-for="card in cards" :key="card.key" class="summary-card">
       <view class="summary-card__pill">
         <text class="summary-card__label">{{ card.label }}</text>
